@@ -75,8 +75,8 @@
 ## **Api Endpoints:** 🍡
 ### Retrieve List of Products:
 - `GET /api/products`
-- Fetches the list of products from the database and returns them as JSON response.
-- In the Laravel controller, it would be defined a method that fetches the products from the database using the Product model and returns them as an API resource or plain JSON response. I can use Laravel's query builder or Eloquent ORM to query the database and retrieve the products based on the data model.
+- Fetches the details of a specific product based on the product ID from the database and returns them as props to be used in a Vue component.
+- It would be defined a method that fetches the products from the database using the Product model and passes them as props to a Vue component using the inertia helper. You can use Laravel's query builder or Eloquent ORM to query the database and retrieve the products based on your data model. In the Vue component, I can access the props and render the list of products.
 
 ### Retrieve Product Detail:
 - `GET /api/products/{id}`
@@ -87,3 +87,19 @@
 - `POST /api/cart/add`
 - Adds a product to the cart for the currently authenticated user
 - It would be defined a method that receives the product ID and quantity as input from the request, validates the input, and adds the product to the cart for the authenticated user. You can use Laravel's built-in authentication middleware to ensure that only authenticated users can add products to the cart, and I can use Laravel's session or a persistent storage such as the database to store the cart data
+
+### Retrieve Cart Data:
+- `GET /api/cart`
+- Fetches the cart data for the currently authenticated user and returns them as JSON response
+- It would be defined a method that fetches the cart data for the authenticated user, retrieves the cart items from the session or persistent storage, and returns them as an API resource or plain JSON response.
+
+### Manage Cart Items
+- `PUT /api/cart/{id}`
+-  Updates the quantity of a specific cart item for the currently authenticated user, or removes the cart item if the quantity is set to 0
+-  It would be define a method that receives the cart item ID and quantity as input from the request, validates the input, and updates the quantity of the cart item in the cart data for the authenticated user. If the quantity is set to 0, you would remove the cart item from the cart data.
+
+## **Other features or functionalities:** 🙏
+- Search and Filtering: Implement a search functionality that allows users to search for products based on keywords, categories, or other criteria. You can also add filtering options, such as sorting by price, rating, or popularity, to help users narrow down their product selection.
+- User Authentication and Authorization: Implement user authentication and authorization to allow users to create accounts, login, and manage their profiles. You can use Laravel's built-in authentication system to handle user registration, login, and password reset. You can also implement role-based authorization to control access to certain features or functionalities based on user roles, such as allowing only authenticated users to add products to their cart.
+- Reviews and Ratings: Allow users to leave reviews and ratings for products. Users can provide feedback on their experience with the product, and other users can view the reviews and ratings to make informed purchasing decisions.
+- Order History and Tracking: Implement an order history and tracking functionality that allows users to view their past orders, track the status of their current orders, and receive notifications about their order status updates.
