@@ -61,8 +61,9 @@
 
 ## Testing
 - Write unit tests and/or feature tests for the  components, Vuex store, and Laravel controllers and API routes using testing frameworks such as Jest, Vue Test Utils, and Laravel's built-in testing features.
-- Test various scenarios such as adding products to the cart, retrieving cart data, and handling errors to ensure the reliability and quality of  code.
--
+- Test various scenarios such as adding products to the cart, retrieving cart data, and handling errors to ensure the reliability and quality of the code.
+- Incorporate mock data and mock API requests using libraries such as Axios Mock Adapter or Laravel's built-in HTTP testing features to simulate API responses and test different scenarios.
+
 
 ### Code Organization and Best Practices
 - Follow best practices for code organization, such as separating concerns into components, using Vuex for state management if necessary, and structuring the Laravel controllers and routes logically.
