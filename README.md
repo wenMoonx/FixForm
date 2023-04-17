@@ -30,7 +30,7 @@
 - Laravel Dusk
 - Git
 
-## **Tech Stacks** 🔏
+## **Architecture and Design Patterns:** 🔏
 - Follow Laravel's MVC (Model-View-Controller) architectural pattern to separate business logic, data handling, and presentation concerns.
 - Use Laravel's built-in routing system to define API routes and handle incoming requests.
 - Utilize Vue.js components to create a modular and reusable UI with clear separation of concerns.
