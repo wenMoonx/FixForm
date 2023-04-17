@@ -22,7 +22,7 @@
 - Laravel 8.0
 - Laravel Eloquent
 - Laravel Sanctum
-- MySql or PostSql
+- MySql or PostgreSQL
 ### Other Libraries
 - Vue Test Utils
 - Laravel Mix
