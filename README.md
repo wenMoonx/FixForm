@@ -72,3 +72,18 @@
 - Document the code, including any installation instructions, usage instructions, and any design/architectural patterns used in project.
 - Consider implementing error handling, validation, and security measures to protect against potential security risks and enhance user experience.
 
+## **Api Endpoints:** 🍡
+### Retrieve List of Products:
+- `GET /api/products`
+- Fetches the list of products from the database and returns them as JSON response.
+- In the Laravel controller, it would be defined a method that fetches the products from the database using the Product model and returns them as an API resource or plain JSON response. I can use Laravel's query builder or Eloquent ORM to query the database and retrieve the products based on the data model.
+
+### Retrieve Product Detail:
+- `GET /api/products/{id}`
+- Fetches the details of a specific product based on the product ID from the database and returns them as JSON response
+- it would be defined a method that fetches the product details from the database based on the product ID, using the Product model or Eloquent ORM, and returns them as an API resource or plain JSON response.
+
+### Add Product to Cart:
+- `POST /api/cart/add`
+- Adds a product to the cart for the currently authenticated user
+- It would be defined a method that receives the product ID and quantity as input from the request, validates the input, and adds the product to the cart for the authenticated user. You can use Laravel's built-in authentication middleware to ensure that only authenticated users can add products to the cart, and I can use Laravel's session or a persistent storage such as the database to store the cart data
