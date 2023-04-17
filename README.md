@@ -76,7 +76,7 @@
 ### Retrieve List of Products:
 - `GET /api/products`
 - Fetches the details of a specific product based on the product ID from the database and returns them as props to be used in a Vue component.
-- It would be defined a method that fetches the products from the database using the Product model and passes them as props to a Vue component using the inertia helper. You can use Laravel's query builder or Eloquent ORM to query the database and retrieve the products based on your data model. In the Vue component, I can access the props and render the list of products.
+- It would be defined a method that fetches the products from the database using the Product model and passes them as props to a Vue component using the inertia helper. You can use Laravel's query builder or Eloquent ORM to query the database and retrieve the products based on the data model. In the Vue component, I can access the props and render the list of products.
 
 ### Retrieve Product Detail:
 - `GET /api/products/{id}`
