@@ -25,10 +25,9 @@
 - Laravel Sanctum
 - MySql
 ### Other Libraries
-- Vue Test Utils
+- InertiaJs Testing
 - Laravel Mix
 - PHPUnit
-- Laravel Dusk
 - Git
 
 ## **Architecture and Design Patterns:** 🔏
