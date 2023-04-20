@@ -34,9 +34,9 @@ const submit = () => {
                 <InputLabel for="email" value="Email" />
                 <TextInput
                     id="email"
+                    v-model="form.email"
                     type="email"
                     class="block w-full mt-1"
-                    v-model="form.email"
                     required
                     autofocus
                     autocomplete="username"
@@ -48,9 +48,9 @@ const submit = () => {
                 <InputLabel for="password" value="Password" />
                 <TextInput
                     id="password"
+                    v-model="form.password"
                     type="password"
                     class="block w-full mt-1"
-                    v-model="form.password"
                     required
                     autocomplete="new-password"
                 />
@@ -64,9 +64,9 @@ const submit = () => {
                 />
                 <TextInput
                     id="password_confirmation"
+                    v-model="form.password_confirmation"
                     type="password"
                     class="block w-full mt-1"
-                    v-model="form.password_confirmation"
                     required
                     autocomplete="new-password"
                 />

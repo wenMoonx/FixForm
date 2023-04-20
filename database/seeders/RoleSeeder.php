@@ -27,7 +27,7 @@ class RoleSeeder extends Seeder
         $role->givePermissionTo('manage roles', 'manage permissions', 'manage users', 'manage posts');
 
         $role = Role::create([
-            'name' => 'author',
+            'name' => 'seller',
             'guard_name' => 'web',
         ]);
         $role->givePermissionTo('manage posts');

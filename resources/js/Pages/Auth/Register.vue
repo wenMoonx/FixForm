@@ -60,10 +60,10 @@ const submit = () => {
                 <div class="relative">
                     <input
                         id="name"
+                        v-model="form.name"
                         type="text"
                         class="block w-full px-4 py-3 text-sm rounded-md shadow-sm border-shark-200 pl-11 focus:z-10 focus:border-cyan-500 focus:ring-cyan-500 dark:bg-shark-900 dark:border-shark-700 dark:text-gray-400"
                         placeholder="Ohara Trees"
-                        v-model="form.name"
                         required
                         autofocus
                         autocomplete="name"
@@ -86,10 +86,10 @@ const submit = () => {
                 <div class="relative">
                     <input
                         id="email"
+                        v-model="form.email"
                         type="email"
                         class="block w-full px-4 py-3 text-sm rounded-md shadow-sm border-shark-200 pl-11 focus:z-10 focus:border-cyan-500 focus:ring-cyan-500 dark:bg-shark-900 dark:border-shark-700 dark:text-gray-400"
                         placeholder="you@site.com"
-                        v-model="form.email"
                         required
                         autocomplete="username"
                     />
@@ -122,10 +122,10 @@ const submit = () => {
                 <div class="relative">
                     <input
                         id="password"
+                        v-model="form.password"
                         :type="typePassword()"
                         class="block w-full px-4 py-3 text-sm rounded-md shadow-sm border-shark-200 pl-11 pr-11 focus:z-10 focus:border-cyan-500 focus:ring-cyan-500 dark:bg-shark-900 dark:border-shark-700 dark:text-gray-400"
                         placeholder="********"
-                        v-model="form.password"
                         required
                         autocomplete="current-password"
                     />
@@ -135,8 +135,8 @@ const submit = () => {
                         <PasswordIcon class="text-gray-400" />
                     </div>
                     <div
-                        @click="togglePassword"
                         class="absolute inset-y-0 right-0 z-20 flex items-center pr-4 cursor-pointer"
+                        @click="togglePassword"
                     >
                         <EyePasswordIcon
                             v-if="!showPassword"
@@ -157,10 +157,10 @@ const submit = () => {
                 <div class="relative">
                     <input
                         id="password_confirmation"
+                        v-model="form.password_confirmation"
                         :type="typeConfirmPassword()"
                         class="block w-full px-4 py-3 text-sm rounded-md shadow-sm border-shark-200 pl-11 focus:z-10 focus:border-cyan-500 focus:ring-cyan-500 dark:bg-shark-900 dark:border-shark-700 dark:text-gray-400"
                         placeholder="********"
-                        v-model="form.password_confirmation"
                         required
                         autocomplete="new-password"
                     />
@@ -170,8 +170,8 @@ const submit = () => {
                         <PasswordIcon class="text-gray-400" />
                     </div>
                     <div
-                        @click="toggleConfirmPassword"
                         class="absolute inset-y-0 right-0 z-20 flex items-center pr-4 cursor-pointer"
+                        @click="toggleConfirmPassword"
                     >
                         <EyePasswordIcon
                             v-if="!showConfirmPassword"
@@ -196,7 +196,7 @@ const submit = () => {
 
                 <PrimaryButton
                     class="ml-4"
-                    bgColor="bg-accent-2 hover:bg-cyan-700 dark:bg-accent-2 dark:hover:bg-cyan-700"
+                    bg-color="bg-accent-2 hover:bg-cyan-700 dark:bg-accent-2 dark:hover:bg-cyan-700"
                     :class="{ 'opacity-25': form.processing }"
                     :disabled="form.processing"
                 >

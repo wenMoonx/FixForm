@@ -75,10 +75,10 @@ const submit = () => {
                 <div class="relative">
                     <input
                         id="email"
+                        v-model="form.email"
                         type="email"
                         class="block w-full px-4 py-3 text-sm border-gray-200 rounded-md shadow-sm pl-11 focus:z-10 focus:border-cyan-500 focus:ring-cyan-500 dark:bg-shark-900 dark:border-shark-700 dark:text-shark-400"
                         placeholder="you@site.com"
-                        v-model="form.email"
                         required
                         autofocus
                         autocomplete="username"
@@ -112,9 +112,9 @@ const submit = () => {
                 <div class="relative">
                     <input
                         id="password"
+                        v-model="form.password"
                         :type="typePassword()"
                         class="block w-full px-4 py-3 text-sm rounded-md shadow-sm border-shark-200 pl-11 pr-11 focus:z-10 focus:border-cyan-500 focus:ring-cyan-500 dark:bg-shark-900 dark:border-shark-700 dark:text-gray-400"
-                        v-model="form.password"
                         required
                         autocomplete="current-password"
                     />
@@ -124,8 +124,8 @@ const submit = () => {
                         <PasswordIcon class="text-gray-400" />
                     </div>
                     <div
-                        @click="togglePassword"
                         class="absolute inset-y-0 right-0 z-20 flex items-center pr-4 cursor-pointer"
+                        @click="togglePassword"
                     >
                         <EyePasswordIcon
                             v-if="!showPassword"
@@ -139,7 +139,7 @@ const submit = () => {
 
             <div class="block mt-4">
                 <label class="flex items-center">
-                    <Checkbox name="remember" v-model:checked="form.remember" />
+                    <Checkbox v-model:checked="form.remember" name="remember" />
                     <span class="ml-2 text-sm text-quill-gray-100"
                         >Remember me</span
                     >
@@ -157,7 +157,7 @@ const submit = () => {
 
                 <PrimaryButton
                     class="ml-4"
-                    bgColor="bg-accent-2 hover:bg-cyan-700 dark:bg-accent-2 dark:hover:bg-cyan-700"
+                    bg-color="bg-accent-2 hover:bg-cyan-700 dark:bg-accent-2 dark:hover:bg-cyan-700"
                     :class="{ 'opacity-25': form.processing }"
                     :disabled="form.processing"
                 >

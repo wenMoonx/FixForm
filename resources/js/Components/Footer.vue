@@ -15,7 +15,7 @@ import LoveIcon from "./Icons/LoveIcon.vue";
                     <p
                         class="flex items-center max-w-xs gap-1 mt-4 text-sm text-gray-600 dark:text-gray-100"
                     >
-                        Built with <LoveIcon class="fill-rose-500" /> by Wanrif
+                        Built with <LoveIcon class="fill-rose-500" /> by Evan Jones
                     </p>
                     <div
                         class="flex mt-8 space-x-6 text-gray-600 dark:text-gray-100"
@@ -62,7 +62,7 @@ import LoveIcon from "./Icons/LoveIcon.vue";
                         </a>
                         <a
                             class="hover:opacity-75"
-                            href="https://twitter.com/oharatrees"
+                            href
                             target="_blank"
                             rel="noreferrer"
                         >
@@ -80,7 +80,7 @@ import LoveIcon from "./Icons/LoveIcon.vue";
                         </a>
                         <a
                             class="hover:opacity-75"
-                            href="https://github.com/Wansrif"
+                            href
                             target="_blank"
                             rel="noreferrer"
                         >
@@ -126,10 +126,7 @@ import LoveIcon from "./Icons/LoveIcon.vue";
                             <a class="hover:opacity-75" href>
                                 Accounts Review
                             </a>
-                            <a class="hover:opacity-75" href> HR Consulting </a>
-                            <a class="hover:opacity-75" href>
-                                SEO Optimisation
-                            </a>
+                            <a class="hover:opacity-75" href> Customer Review </a>
                         </nav>
                     </div>
                     <div>
@@ -164,7 +161,7 @@ import LoveIcon from "./Icons/LoveIcon.vue";
                 </div>
             </div>
             <p class="mt-8 text-xs text-gray-800 dark:text-white">
-                © 2022 Comany Name
+                © 2023 FixForm
             </p>
         </div>
     </footer>

@@ -33,7 +33,7 @@ class UserSeeder extends Seeder
         $admin->assignRole('admin');
 
         $author = User::create([
-            'name' => 'Author',
+            'name' => 'User',
             'email' => 'test@example.com',
             'password' => bcrypt('password'),
         ]);
@@ -41,7 +41,7 @@ class UserSeeder extends Seeder
         $author->assignRole('author');
 
         $author2 = User::create([
-            'name' => 'Author 2',
+            'name' => 'User 2',
             'email' => 'test2@example.com',
             'password' => bcrypt('password'),
         ]);

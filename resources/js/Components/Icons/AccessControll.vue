@@ -10,11 +10,11 @@ const props = withDefaults(defineProps<Props>(), {
 
 <template>
     <svg
+        id="Material_Expand"
         :class="props.size"
         class="fill-current"
         viewBox="0 0 64 64"
         data-name="Material Expand"
-        id="Material_Expand"
         xmlns="http://www.w3.org/2000/svg"
     >
         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>

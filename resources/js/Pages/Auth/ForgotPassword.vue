@@ -42,10 +42,10 @@ const submit = () => {
                 <div class="relative">
                     <input
                         id="email"
+                        v-model="form.email"
                         type="email"
                         class="block w-full px-4 py-3 text-sm rounded-md shadow-sm border-shark-200 pl-11 focus:z-10 focus:border-cyan-500 focus:ring-cyan-500 dark:bg-shark-900 dark:border-shark-700 dark:text-gray-400"
                         placeholder="you@site.com"
-                        v-model="form.email"
                         required
                         autocomplete="username"
                     />
@@ -71,7 +71,7 @@ const submit = () => {
 
             <div class="flex items-center justify-end mt-4">
                 <PrimaryButton
-                    bgColor="bg-accent-2 hover:bg-cyan-700 dark:bg-accent-2 dark:hover:bg-cyan-700"
+                    bg-color="bg-accent-2 hover:bg-cyan-700 dark:bg-accent-2 dark:hover:bg-cyan-700"
                     :class="{ 'opacity-25': form.processing }"
                     :disabled="form.processing"
                 >

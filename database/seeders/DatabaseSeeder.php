@@ -24,10 +24,9 @@ class DatabaseSeeder extends Seeder
         $this->call([
             PermissionSeeder::class,
             RoleSeeder::class,
-            CategorySeeder::class,
             UserSeeder::class,
         ]);
 
-        \App\Models\Post::factory(2300)->create();
+        \App\Models\Production::factory(30)->create();
     }
 }

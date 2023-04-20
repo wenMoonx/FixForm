@@ -31,9 +31,9 @@ const submit = () => {
                 <InputLabel for="password" value="Password" />
                 <TextInput
                     id="password"
+                    v-model="form.password"
                     type="password"
                     class="block w-full mt-1"
-                    v-model="form.password"
                     required
                     autocomplete="current-password"
                     autofocus

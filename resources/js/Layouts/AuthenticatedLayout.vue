@@ -11,10 +11,17 @@ import Sidebar from "./Partials/Sidebar.vue";
 import SunIcon from "@/Components/Icons/SunIcon.vue";
 import ResponsiveNavLink from "@/Components/ResponsiveNavLink.vue";
 import ThemeMode from "@/Components/ThemeMode.vue";
+import LogoutIcon from "@/Components/Icons/LogoutIcon.vue";
+import ProfileIcon from "@/Components/Icons/ProfileIcon.vue";
+import ArrowToggleIcon from "@/Components/Icons/ArrowToggleIcon.vue";
+import ArrowDownIcon from "@/Components/Icons/ArrowDownIcon.vue";
+import TagIcon from "@/Components/Icons/TagIcon.vue";
+import { useCartStore } from "@/Store/cart";
 
 const showingNavigationDropdown = ref(false);
 
 const user = computed(() => usePage().props.auth.user);
+const cartStore = useCartStore();
 
 const mode = useColorMode({
     emitAuto: true,
@@ -62,35 +69,10 @@ onMounted(() => {
 
                                 <!-- Sidebar Button -->
                                 <button
-                                    @click="sidebar = !sidebar"
                                     class="hidden p-1 transition duration-200 ease-in rounded-lg focus:ring-indigo-500 focus:ring-offset-indigo-200 focus:outline-none focus:ring-2 focus:ring-offset-2 sm:block"
+                                    @click="sidebar = !sidebar"
                                 >
-                                    <svg
-                                        v-if="sidebar"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 24 24"
-                                        stroke-width="1.5"
-                                        class="w-5 h-5 text-indigo-500 -rotate-90 stroke-current dark:text-gray-100"
-                                    >
-                                        <path
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            d="M3 4.5h14.25M3 9h9.75M3 13.5h5.25m5.25-.75L17.25 9m0 0L21 12.75M17.25 9v12"
-                                        />
-                                    </svg>
-                                    <svg
-                                        v-else
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 24 24"
-                                        stroke-width="1.5"
-                                        class="w-5 h-5 text-indigo-500 -rotate-90 stroke-current dark:text-gray-100"
-                                    >
-                                        <path
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            d="M3 4.5h14.25M3 9h9.75M3 13.5h9.75m4.5-4.5v12m0 0l-3.75-3.75M17.25 21L21 17.25"
-                                        />
-                                    </svg>
+                                    <ArrowToggleIcon :sidebar="sidebar" />
                                 </button>
                             </div>
                         </div>
@@ -98,8 +80,8 @@ onMounted(() => {
                         <!-- Theme Mode -->
                         <div class="hidden sm:flex sm:items-center sm:ml-6">
                             <button
-                                @click="next()"
                                 class="p-2 transition duration-200 ease-in rounded-lg focus:ring-indigo-500 focus:ring-offset-indigo-200 focus:outline-none focus:ring-2 focus:ring-offset-2"
+                                @click="next()"
                             >
                                 <div
                                     class="items-center block font-medium text-gray-600 hover:text-indigo-600 dark:text-gray-400 dark:hover:text-gray-500"
@@ -120,6 +102,22 @@ onMounted(() => {
                                 </div>
                             </button>
 
+                            <!-- Cart -->
+
+                            <Link
+                                :href="route('cart.index')"
+                                class="relative h=[50px] p-2 rounded-sm cursor-pointer"
+                            >
+                                <div class="relative ml-2">
+                                    <TagIcon color="orange" />
+                                    <span
+                                        class="absolute -top-2 left-3 inline-flex items-center justify-center h-5 w-5 rounded-full bg-red-500 text-white"
+                                    >
+                                        {{ cartStore?.cart.length }}
+                                    </span>
+                                </div>
+                            </Link>
+
                             <!-- Settings Dropdown -->
                             <div class="relative ml-3">
                                 <Dropdown align="right" width="48">
@@ -131,18 +129,7 @@ onMounted(() => {
                                             >
                                                 {{ user.name }}
 
-                                                <svg
-                                                    class="ml-2 -mr-0.5 h-4 w-4"
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    viewBox="0 0 20 20"
-                                                    fill="currentColor"
-                                                >
-                                                    <path
-                                                        fill-rule="evenodd"
-                                                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                                        clip-rule="evenodd"
-                                                    />
-                                                </svg>
+                                                <ArrowDownIcon />
                                             </button>
                                         </span>
                                     </template>
@@ -157,40 +144,8 @@ onMounted(() => {
                                             :href="route('profile.edit')"
                                             class="flex items-center gap-4"
                                         >
-                                            <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                viewBox="0 0 24 24"
-                                                fill="currentColor"
-                                                class="w-5 h-5"
-                                            >
-                                                <path
-                                                    fill-rule="evenodd"
-                                                    d="M7.5 6a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM3.751 20.105a8.25 8.25 0 0116.498 0 .75.75 0 01-.437.695A18.683 18.683 0 0112 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 01-.437-.695z"
-                                                    clip-rule="evenodd"
-                                                />
-                                            </svg>
-
+                                            <ProfileIcon />
                                             Profile
-                                        </DropdownLink>
-                                        <DropdownLink
-                                            :href="route('home')"
-                                            class="flex items-center gap-4"
-                                        >
-                                            <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                viewBox="0 0 24 24"
-                                                fill="currentColor"
-                                                class="w-5 h-5"
-                                            >
-                                                <path
-                                                    d="M11.47 3.84a.75.75 0 011.06 0l8.69 8.69a.75.75 0 101.06-1.06l-8.689-8.69a2.25 2.25 0 00-3.182 0l-8.69 8.69a.75.75 0 001.061 1.06l8.69-8.69z"
-                                                />
-                                                <path
-                                                    d="M12 5.432l8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 01-.75-.75v-4.5a.75.75 0 00-.75-.75h-3a.75.75 0 00-.75.75V21a.75.75 0 01-.75.75H5.625a1.875 1.875 0 01-1.875-1.875v-6.198a2.29 2.29 0 00.091-.086L12 5.43z"
-                                                />
-                                            </svg>
-
-                                            Home
                                         </DropdownLink>
                                         <DropdownLink
                                             :href="route('logout')"
@@ -198,19 +153,7 @@ onMounted(() => {
                                             as="button"
                                             class="flex items-center gap-4"
                                         >
-                                            <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                viewBox="0 0 24 24"
-                                                fill="currentColor"
-                                                class="w-5 h-5"
-                                            >
-                                                <path
-                                                    fill-rule="evenodd"
-                                                    d="M7.5 3.75A1.5 1.5 0 006 5.25v13.5a1.5 1.5 0 001.5 1.5h6a1.5 1.5 0 001.5-1.5V15a.75.75 0 011.5 0v3.75a3 3 0 01-3 3h-6a3 3 0 01-3-3V5.25a3 3 0 013-3h6a3 3 0 013 3V9A.75.75 0 0115 9V5.25a1.5 1.5 0 00-1.5-1.5h-6zm5.03 4.72a.75.75 0 010 1.06l-1.72 1.72h10.94a.75.75 0 010 1.5H10.81l1.72 1.72a.75.75 0 11-1.06 1.06l-3-3a.75.75 0 010-1.06l3-3a.75.75 0 011.06 0z"
-                                                    clip-rule="evenodd"
-                                                />
-                                            </svg>
-
+                                            <LogoutIcon />
                                             Log Out
                                         </DropdownLink>
                                     </template>
@@ -221,11 +164,11 @@ onMounted(() => {
                         <!-- Hamburger -->
                         <div class="flex items-center -mr-2 sm:hidden">
                             <button
+                                class="inline-flex items-center justify-center p-2 text-gray-400 transition duration-150 ease-in-out rounded-md hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 dark:hover:bg-gray-900"
                                 @click="
                                     showingNavigationDropdown =
                                         !showingNavigationDropdown
                                 "
-                                class="inline-flex items-center justify-center p-2 text-gray-400 transition duration-150 ease-in-out rounded-md hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 dark:hover:bg-gray-900"
                             >
                                 <svg
                                     class="w-6 h-6"
@@ -280,17 +223,19 @@ onMounted(() => {
                             :href="route('dashboard.posts.index')"
                             :active="route().current('dashboard.posts.*')"
                         >
-                            Posts
+                            Manage Products
                         </ResponsiveNavLink>
                         <ResponsiveNavLink
-                            v-if="
-                                user.role === 'super-admin' ||
-                                user.role === 'admin'
-                            "
-                            :href="route('dashboard.categories.index')"
-                            :active="route().current('dashboard.categories.*')"
+                            :href="route('dashboard.products.index')"
+                            :active="route().current('dashboard.products.*')"
                         >
-                            Categories
+                            Products
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink
+                            :href="route('order.index')"
+                            :active="route().current('order.index.*')"
+                        >
+                            My Orders
                         </ResponsiveNavLink>
                         <ResponsiveNavLink
                             v-if="
@@ -380,8 +325,8 @@ onMounted(() => {
                     "
                 >
                     <header
-                        class="bg-white shadow dark:bg-gray-800"
                         v-if="$slots.header"
+                        class="bg-white shadow dark:bg-gray-800"
                     >
                         <div
                             class="px-4 py-6 mx-auto max-w-7xl sm:px-6 lg:px-8"
