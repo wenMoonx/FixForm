@@ -16,13 +16,14 @@
 ### FrontEnd
 - Vue3
 - VueX 4.0
+- Pinia 3.0
 - Tailwind 3.0
 - Inertia.js
 ### BackEnd
 - Laravel 8.0
 - Laravel Eloquent
 - Laravel Sanctum
-- MySql or PostgreSQL
+- MySql
 ### Other Libraries
 - Vue Test Utils
 - Laravel Mix
@@ -84,7 +85,7 @@
 - it would be defined a method that fetches the product details from the database based on the product ID, using the Product model or Eloquent ORM, and returns them as an API resource or plain JSON response.
 
 ### Add Product to Cart:
-- `POST /api/cart/add`
+- `POST /api/cart/store`
 - Adds a product to the cart for the currently authenticated user
 - It would be defined a method that receives the product ID and quantity as input from the request, validates the input, and adds the product to the cart for the authenticated user. You can use Laravel's built-in authentication middleware to ensure that only authenticated users can add products to the cart, and I can use Laravel's session or a persistent storage such as the database to store the cart data
 
@@ -101,5 +102,55 @@
 ## **Other features or functionalities:** 🙏
 - Search and Filtering: Implement a search functionality that allows users to search for products based on keywords, categories, or other criteria. You can also add filtering options, such as sorting by price, rating, or popularity, to help users narrow down their product selection.
 - User Authentication and Authorization: Implement user authentication and authorization to allow users to create accounts, login, and manage their profiles. You can use Laravel's built-in authentication system to handle user registration, login, and password reset. You can also implement role-based authorization to control access to certain features or functionalities based on user roles, such as allowing only authenticated users to add products to their cart.
-- Reviews and Ratings: Allow users to leave reviews and ratings for products. Users can provide feedback on their experience with the product, and other users can view the reviews and ratings to make informed purchasing decisions.
 - Order History and Tracking: Implement an order history and tracking functionality that allows users to view their past orders, track the status of their current orders, and receive notifications about their order status updates.
+- User management, Product management
+- Permission & Role management
+- Theme can be changed
+
+## **Command to execute the project:** 🥖
+### Server-Side
+
+```
+composer install
+
+cp .env.example .env
+
+php artisan cache:clear
+
+composer dump-autoload
+
+php artisan key:generate
+
+composer require laravel/breeze --dev
+
+php artisan breeze:install vue --inertia
+
+php artisan serve
+```
+
+### Database
+
+```
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=fixform
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+### Migrate
+
+```
+php artisan migrate
+
+php artisan db:seed
+```
+
+### Server-Side
+
+```
+npm i
+
+npm run dev
+```

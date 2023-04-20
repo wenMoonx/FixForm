@@ -28,7 +28,6 @@ class ProductionController extends Controller
             'body' => $post->body,
             'price' => $post->price,
             'image' => $post->image,
-            'author' => $post->author,
             'created_at' => $post->created_at->diffForHumans(),
         ]);
 

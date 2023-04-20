@@ -13,11 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('productions', function (Blueprint $table) {
+        Schema::create('orders', function (Blueprint $table) {
             $table->ulid('id')->primary();
             $table->foreignUlid('user_id');
-            $table->string('production_id');
-            $table->integer('amount');
+            $table->float('total', 6, 2);
+            $table->float('total_decimal', 6, 2);
+            $table->string('payment_intent');
+            $table->longText('items');
             $table->timestamps();
         });
     }
